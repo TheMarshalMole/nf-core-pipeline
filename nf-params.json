@@ -1,0 +1,7 @@
+{
+    "gtf": "v29:/home/csandu/Documents/DROP/DROP-data/drop_demo_data/Data/gencode_annotation_trunc.gtf",
+    "outdir": "/home/csandu/Documents/DROP/DROP-data/out",
+    "aberrantexpression": true,
+    "groups": "outrider, outrider_external",
+    "bams": "/home/csandu/Documents/DROP/DROP-data/drop_demo_data/Data/rna_bam/*.bam"
+}
