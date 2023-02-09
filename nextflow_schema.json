@@ -9,7 +9,10 @@
             "title": "Gene Annotations",
             "type": "object",
             "description": "",
-            "default": "",
+            "required": [
+                "gtf",
+                "bams"
+            ],
             "properties": {
                 "gtf": {
                     "type": "string",
@@ -21,11 +24,7 @@
                     "pattern": "^\\S+",
                     "description": "The path to bams folder"
                 }
-            },
-            "required": [
-                "gtf",
-                "bams"
-            ]
+            }
         },
         "input_output_options": {
             "title": "Input/output options",
@@ -44,34 +43,27 @@
                 }
             }
         },
-        "aberrant_expression": {
+        "aberrant_expression_options": {
             "title": "Aberrant Expression",
             "type": "object",
             "description": "",
-            "default": "",
+            "required": [
+
+            ],
             "properties": {
-                "aberrantexpression": {
-                    "type": "boolean",
-                    "description": "Execute aberrant expression pipeline",
-                    "default": true
-                },
-                "groups": {
-                    "type": "string",
-                    "default": "outrider, outrider_external",
-                    "pattern": "([a-z]|_|,| )+"
-                }
+
             }
         }
     },
     "allOf": [
         {
-            "$ref": "#/definitions/gene_annotations"
+            "$ref": "#/definitions/aberrant_expression_options"
         },
         {
             "$ref": "#/definitions/input_output_options"
         },
         {
-            "$ref": "#/definitions/aberrant_expression"
+            "$ref": "#/definitions/gene_annotations"
         }
     ]
 }
