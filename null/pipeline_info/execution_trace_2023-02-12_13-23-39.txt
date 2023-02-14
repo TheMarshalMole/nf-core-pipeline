@@ -1,0 +1,2 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+1	1e/39d146	177140	DROP_DROP:DROP:READ_TSV	FAILED	2	2023-02-12 13:23:44.243	136ms	41ms	-	-	-	-	-

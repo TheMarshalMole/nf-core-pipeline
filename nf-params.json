@@ -1,20 +1,21 @@
 {
-    "gtf": "v29:/home/csandu/Documents/DROP/DROP-data/drop_demo_data/Data/gencode_annotation_trunc.gtf",
-    "bams": "/home/csandu/Documents/DROP/DROP-data/drop_demo_data/Data/rna_bam/*.bam",
-    "outdir": "/home/csandu/Documents/DROP/DROP-data/out",
-    "sample_annotation_relative": "/home/csandu/Documents/DROP/DROP-git/drop/drop/demo/sample_annotation_relative.tsv",
+    "rootDataFolder": "/home/csandu/Documents/DROP/DROP-data/drop_demo_data/",
+    "annotation": "/home/csandu/Documents/DROP/DROP-git/drop/drop/demo/sample_annotation_relative.tsv",
+    "gtfData": [{
+        "version": "v29",
+        "path": "/home/csandu/Documents/DROP/DROP-data/drop_demo_data/Data/gencode_annotation_trunc.gtf"
+    }],
+    "outputDir": "/home/csandu/Documents/DROP/DROP-data/out",
+    "hpoFile": "/home/csandu/Documents/DROP/DROP/.drop/helpers/add_HPO_cols.R",
     "aberrantexpression": {
-        "active": false,
         "implementation": "autoencoder",
         "maxTestedDimensionProportion": 3,
-        "HPO_helper": "/home/csandu/Documents/DROP/DROP/.drop/helpers/add_HPO_cols.R",
         "padjCutoff": 1,
         "zScoreCutoff": 0,
-        "groups": "outrider, outrider_external"
-    },
-
-    "aberrantslicing": {
         "active": true,
-        "groups": "fraser, fraser_external"
+        "groups": ["outrider", "outrider_external"]
+    },
+    "aberrantslicing": {
+        "active": false
     }
 }

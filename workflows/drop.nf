@@ -52,13 +52,25 @@ def multiqc_report = []
 workflow DROP {
     ch_versions = Channel.empty()
 
+    params.procAnnotation = Channel.fromPath(params.annotation)
+        .splitCsv (sep: "\t", header: true)
+        .map {
+            val -> {
+                // relative path to absolute path
+                if (val.RNA_BAM_FILE != "") {
+                    val.RNA_BAM_FILE = params.rootDataFolder + val.RNA_BAM_FILE
+                }
+                val
+            }
+        }
+
     if (params.aberrantexpression.active) {
         ABERRANT_EXPRESSION(params)
     }
 
-    if (params.aberrantslicing.active) {
-        ABERRANT_SPLICING(params)
-    }
+//     if (params.aberrantslicing.active) {
+//         ABERRANT_SPLICING(params)
+//     }
 }
 
 /*

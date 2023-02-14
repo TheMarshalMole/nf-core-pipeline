@@ -9,10 +9,6 @@
             "title": "Gene Annotations",
             "type": "object",
             "description": "",
-            "required": [
-                "gtf",
-                "bams"
-            ],
             "properties": {
                 "gtf": {
                     "type": "string",
@@ -31,9 +27,6 @@
             "type": "object",
             "fa_icon": "fas fa-terminal",
             "description": "Define where the pipeline should find input data and save output data.",
-            "required": [
-                "outdir"
-            ],
             "properties": {
                 "outdir": {
                     "type": "string",
