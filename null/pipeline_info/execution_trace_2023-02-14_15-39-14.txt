@@ -1,0 +1,2 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+2	56/438c22	-	DROP_DROP:DROP:ABERRANT_SPLICING:CREATE_FMAPPING (1)	FAILED	-	-	-	-	-	-	-	-	-

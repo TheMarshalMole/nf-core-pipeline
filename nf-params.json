@@ -7,15 +7,21 @@
     }],
     "outputDir": "/home/csandu/Documents/DROP/DROP-data/out",
     "hpoFile": "/home/csandu/Documents/DROP/DROP/.drop/helpers/add_HPO_cols.R",
+    "genomeAssembly": "hg19",
     "aberrantexpression": {
+        "active": false,
         "implementation": "autoencoder",
         "maxTestedDimensionProportion": 3,
         "padjCutoff": 1,
         "zScoreCutoff": 0,
-        "active": true,
         "groups": ["outrider", "outrider_external"]
     },
-    "aberrantslicing": {
-        "active": false
+    "aberrantsplicing": {
+        "active": true,
+        "recount": true,
+        "keepNonStandardChrs": false,
+        "minExpressionInOneSample": 20,
+        "longRead": false,
+        "groups": ["fraser", "fraser_external"]
     }
 }

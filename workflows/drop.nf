@@ -68,9 +68,9 @@ workflow DROP {
         ABERRANT_EXPRESSION(params)
     }
 
-//     if (params.aberrantslicing.active) {
-//         ABERRANT_SPLICING(params)
-//     }
+    if (params.aberrantsplicing.active) {
+        ABERRANT_SPLICING(params)
+    }
 }
 
 /*
