@@ -4,12 +4,16 @@
     "gtfData": [{
         "version": "v29",
         "path": "/home/csandu/Documents/DROP/DROP-data/drop_demo_data/Data/gencode_annotation_trunc.gtf"
+    },
+    {
+        "version": "v39",
+        "path": "/home/csandu/Documents/DROP/DROP-data/drop_demo_data/Data/gencode_annotation_trunc.gtf"
     }],
     "outputDir": "/home/csandu/Documents/DROP/DROP-data/out",
     "hpoFile": "/home/csandu/Documents/DROP/DROP/.drop/helpers/add_HPO_cols.R",
     "genomeAssembly": "hg19",
     "aberrantexpression": {
-        "active": false,
+        "active": true,
         "implementation": "autoencoder",
         "maxTestedDimensionProportion": 3,
         "padjCutoff": 1,
@@ -17,7 +21,7 @@
         "groups": ["outrider", "outrider_external"]
     },
     "aberrantsplicing": {
-        "active": true,
+        "active": false,
         "recount": true,
         "keepNonStandardChrs": false,
         "minExpressionInOneSample": 20,
