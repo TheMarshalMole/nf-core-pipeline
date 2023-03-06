@@ -1,19 +1,15 @@
 {
-    "rootDataFolder": "/home/csandu/Documents/DROP/DROP-data/drop_demo_data/",
+    "rootDataFolder": "/home/csandu/Documents/DROP/original/",
     "annotation": "/home/csandu/Documents/DROP/DROP-git/drop/drop/demo/sample_annotation_relative.tsv",
     "gtfData": [{
         "version": "v29",
-        "path": "/home/csandu/Documents/DROP/DROP-data/drop_demo_data/Data/gencode_annotation_trunc.gtf"
-    },
-    {
-        "version": "v39",
-        "path": "/home/csandu/Documents/DROP/DROP-data/drop_demo_data/Data/gencode_annotation_trunc.gtf"
+        "path": "/home/csandu/Documents/DROP/original/Data/gencode_annotation_trunc.gtf"
     }],
     "outputDir": "/home/csandu/Documents/DROP/DROP-data/out",
     "hpoFile": "/home/csandu/Documents/DROP/DROP/.drop/helpers/add_HPO_cols.R",
     "genomeAssembly": "hg19",
     "aberrantexpression": {
-        "active": true,
+        "active": false,
         "implementation": "autoencoder",
         "maxTestedDimensionProportion": 3,
         "padjCutoff": 1,
@@ -27,5 +23,22 @@
         "minExpressionInOneSample": 20,
         "longRead": false,
         "groups": ["fraser", "fraser_external"]
+    },
+    "mae": {
+        "active": true,
+        "bcftoolsCmd": "bcftools",
+        "samtoolsCmd": "samtools",
+        "ncbi2ucsc": "/home/csandu/Documents/DROP/DROP-test/Scripts/Pipeline/chr_NCBI_UCSC.txt",
+        "ucsc2ncbi": "/home/csandu/Documents/DROP/DROP-test/Scripts/Pipeline/chr_UCSC_NCBI.txt",
+        "qc_vcf": "/home/csandu/Documents/DROP/original/Data/qc_vcf_1000G.vcf.gz",
+        "chr1": "/home/csandu/Documents/DROP/DROP-test/Data/chr21.fa",
+        "chr1_ncbi": "/home/csandu/Documents/DROP/DROP-test/Data/chr21_ncbi.fa",
+        "gatkIgnoreHeaderCheck": true,
+        "gatkCmd": "gatk",
+        "addAF": false,
+        "maxAF": 0.001,
+        "maxVarFreqCohort": 1,
+        "allelicRatioCutoff": 0.7,
+        "padjCutoff": 0.5
     }
 }

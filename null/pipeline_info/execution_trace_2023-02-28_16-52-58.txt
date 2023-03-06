@@ -1,0 +1,4 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+2	08/aa61e0	249661	DROP_DROP:DROP:MAE:CREATESNVS (2)	FAILED	1	2023-02-28 16:53:05.633	15.3s	15.3s	-	-	-	-	-
+4	94/dbe8be	249652	DROP_DROP:DROP:MAE:CREATESNVS (4)	FAILED	1	2023-02-28 16:53:05.601	15.6s	15.6s	-	-	-	-	-
+3	73/1746b5	251685	DROP_DROP:DROP:MAE:CREATESNVS (3)	FAILED	1	2023-02-28 16:53:20.999	9.8s	9.5s	-	-	-	-	-

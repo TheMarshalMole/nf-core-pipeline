@@ -1,0 +1,3 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+4	e1/94f1bb	219853	DROP_DROP:DROP:MAE:CREATESNVS (4)	ABORTED	-	2023-02-28 16:20:40.352	-	-	-	-	-	-	-
+2	8d/f2797b	219863	DROP_DROP:DROP:MAE:CREATESNVS (2)	ABORTED	-	2023-02-28 16:20:40.392	-	-	-	-	-	-	-

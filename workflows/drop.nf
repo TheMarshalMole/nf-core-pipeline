@@ -38,7 +38,8 @@ def checkPathParamList = [ params.gtf ]
 // SUBWORKFLOW: Consisting of a mix of local and nf-core/modules
 //
 include { ABERRANT_EXPRESSION   } from '../subworkflows/nf-core/aberrantexpression'
-include { ABERRANT_SPLICING      } from '../subworkflows/nf-core/aberrantsplicing'
+include { ABERRANT_SPLICING     } from '../subworkflows/nf-core/aberrantsplicing'
+include { MAE                   } from '../subworkflows/nf-core/mae'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -60,6 +61,9 @@ workflow DROP {
                 if (val.RNA_BAM_FILE != "") {
                     val.RNA_BAM_FILE = params.rootDataFolder + val.RNA_BAM_FILE
                 }
+                if (val.DNA_VCF_FILE != "") {
+                    val.DNA_VCF_FILE = params.rootDataFolder + val.DNA_VCF_FILE
+                }
                 val
             }
         }
@@ -70,6 +74,10 @@ workflow DROP {
 
     if (params.aberrantsplicing.active) {
         ABERRANT_SPLICING(params)
+    }
+
+    if (params.mae.active) {
+        MAE(params)
     }
 }
 
