@@ -50,19 +50,52 @@ include { MAE                   } from '../subworkflows/nf-core/mae'
 // Info required for completion email and summary
 def multiqc_report = []
 
+process MOVE_OUTPUT {
+    input:
+        each (moveVector)
+        val (rootDir)
+
+    shell:
+        """
+            #!/usr/bin/env python
+            import os
+            import shutil
+
+            mVector = "!{moveVector}"
+            mVector = mVector.replace("[", "[\\"").replace("]", "\\"]") \
+                .replace(", ", "\\", \\"").replace("\\"]\\"", "\\"]").replace("\\"[\\"", "[\\"")
+            mVector = eval(mVector)
+            dstDir = "%sOutput_NF/%s/%s/%s" % ("!{rootDir}", mVector[0], mVector[1], mVector[2])
+            os.makedirs(dstDir, exist_ok=True)
+
+            for fName in mVector[3]:
+                if os.path.isdir(fName):
+                    shutil.copytree(fName, dstDir)
+                else:
+                    shutil.copy(fName, dstDir)
+        """
+}
+
 workflow DROP {
     ch_versions = Channel.empty()
 
+    /* Convert TSV data to a list of dictionaries of format
+     * {HEADER[j]: DATA[i][j]}, with j the index of column and
+     * i the index of current row.
+     */
     params.procAnnotation = Channel.fromPath(params.annotation)
         .splitCsv (sep: "\t", header: true)
         .map {
             val -> {
-                // relative path to absolute path
+                // Resolve the relative to absolute paths.
                 if (val.RNA_BAM_FILE != "") {
                     val.RNA_BAM_FILE = params.rootDataFolder + val.RNA_BAM_FILE
                 }
                 if (val.DNA_VCF_FILE != "") {
                     val.DNA_VCF_FILE = params.rootDataFolder + val.DNA_VCF_FILE
+                }
+                if  (val.GENE_COUNTS_FILE != "") {
+                    val.GENE_COUNTS_FILE = params.rootDataFolder + val.GENE_COUNTS_FILE
                 }
                 val
             }
@@ -70,6 +103,7 @@ workflow DROP {
 
     if (params.aberrantexpression.active) {
         ABERRANT_EXPRESSION(params)
+        MOVE_OUTPUT(ABERRANT_EXPRESSION.out.resultsAll, params.rootDataFolder)
     }
 
     if (params.aberrantsplicing.active) {

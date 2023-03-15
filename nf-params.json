@@ -9,11 +9,12 @@
     "hpoFile": "/home/csandu/Documents/DROP/DROP/.drop/helpers/add_HPO_cols.R",
     "genomeAssembly": "hg19",
     "aberrantexpression": {
-        "active": false,
+        "active": true,
         "implementation": "autoencoder",
         "maxTestedDimensionProportion": 3,
         "padjCutoff": 1,
         "zScoreCutoff": 0,
+        "fpkmCutoff": 1,
         "groups": ["outrider", "outrider_external"]
     },
     "aberrantsplicing": {
@@ -22,10 +23,18 @@
         "keepNonStandardChrs": false,
         "minExpressionInOneSample": 20,
         "longRead": false,
-        "groups": ["fraser", "fraser_external"]
+        "groups": ["fraser", "fraser_external"],
+        "filter": false,
+        "minDeltaPsi": 0.05,
+        "implementation": "PCA",
+        "padjCutoff": 1,
+        "zScoreCutoff": 0,
+        "deltaPsiCutoff": 0.05,
+        "maxTestedDimensionProportion": 6,
+        "k_j_counts": "/home/csandu/Documents/DROP/DROP-test/Data/external_count_data/k_j_counts.tsv.gz"
     },
     "mae": {
-        "active": true,
+        "active": false,
         "bcftoolsCmd": "bcftools",
         "samtoolsCmd": "samtools",
         "ncbi2ucsc": "/home/csandu/Documents/DROP/DROP-test/Scripts/Pipeline/chr_NCBI_UCSC.txt",
