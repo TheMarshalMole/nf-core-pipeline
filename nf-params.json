@@ -6,10 +6,9 @@
         "path": "/home/csandu/Documents/DROP/original/Data/gencode_annotation_trunc.gtf"
     }],
     "outputDir": "/home/csandu/Documents/DROP/DROP-data/out",
-    "hpoFile": "/home/csandu/Documents/DROP/DROP/.drop/helpers/add_HPO_cols.R",
     "genomeAssembly": "hg19",
     "aberrantexpression": {
-        "active": true,
+        "active": false,
         "implementation": "autoencoder",
         "maxTestedDimensionProportion": 3,
         "padjCutoff": 1,
@@ -18,7 +17,7 @@
         "groups": ["outrider", "outrider_external"]
     },
     "aberrantsplicing": {
-        "active": false,
+        "active": true,
         "recount": true,
         "keepNonStandardChrs": false,
         "minExpressionInOneSample": 20,
@@ -31,7 +30,7 @@
         "zScoreCutoff": 0,
         "deltaPsiCutoff": 0.05,
         "maxTestedDimensionProportion": 6,
-        "k_j_counts": "/home/csandu/Documents/DROP/DROP-test/Data/external_count_data/k_j_counts.tsv.gz"
+        "hpoFile": null
     },
     "mae": {
         "active": false,

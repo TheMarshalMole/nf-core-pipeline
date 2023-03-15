@@ -97,6 +97,9 @@ workflow DROP {
                 if  (val.GENE_COUNTS_FILE != "") {
                     val.GENE_COUNTS_FILE = params.rootDataFolder + val.GENE_COUNTS_FILE
                 }
+                if  (val.SPLICE_COUNTS_DIR != "") {
+                    val.SPLICE_COUNTS_DIR = params.rootDataFolder + val.SPLICE_COUNTS_DIR
+                }
                 val
             }
         }
@@ -108,6 +111,7 @@ workflow DROP {
 
     if (params.aberrantsplicing.active) {
         ABERRANT_SPLICING(params)
+        MOVE_OUTPUT(ABERRANT_SPLICING.out.resultsAll, params.rootDataFolder)
     }
 
     if (params.mae.active) {
