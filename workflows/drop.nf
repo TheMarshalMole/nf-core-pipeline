@@ -66,10 +66,10 @@ process MOVE_OUTPUT {
                 .replace(", ", "\\", \\"").replace("\\"]\\"", "\\"]").replace("\\"[\\"", "[\\"")
             mVector = eval(mVector)
             dstDir = "%sOutput_NF/%s/%s/%s" % ("!{rootDir}", mVector[0], mVector[1], mVector[2])
-            os.makedirs(dstDir, exist_ok=True)
 
             for fName in mVector[3]:
                 if os.path.isdir(fName):
+                    shutil.rmtree(dstDir)
                     shutil.copytree(fName, dstDir)
                 else:
                     shutil.copy(fName, dstDir)

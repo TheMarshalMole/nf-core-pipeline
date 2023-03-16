@@ -7,6 +7,7 @@
     }],
     "outputDir": "/home/csandu/Documents/DROP/DROP-data/out",
     "genomeAssembly": "hg19",
+    "hpoFile": "/home/csandu/Documents/DROP/DROP/.drop/helpers/add_HPO_cols.R",
     "aberrantexpression": {
         "active": false,
         "implementation": "autoencoder",
@@ -17,7 +18,7 @@
         "groups": ["outrider", "outrider_external"]
     },
     "aberrantsplicing": {
-        "active": true,
+        "active": false,
         "recount": true,
         "keepNonStandardChrs": false,
         "minExpressionInOneSample": 20,
@@ -33,7 +34,7 @@
         "hpoFile": null
     },
     "mae": {
-        "active": false,
+        "active": true,
         "bcftoolsCmd": "bcftools",
         "samtoolsCmd": "samtools",
         "ncbi2ucsc": "/home/csandu/Documents/DROP/DROP-test/Scripts/Pipeline/chr_NCBI_UCSC.txt",
