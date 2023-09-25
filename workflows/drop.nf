@@ -40,6 +40,7 @@ def checkPathParamList = [ params.gtf ]
 include { ABERRANT_EXPRESSION   } from '../subworkflows/nf-core/aberrantexpression'
 include { ABERRANT_SPLICING     } from '../subworkflows/nf-core/aberrantsplicing'
 include { MAE                   } from '../subworkflows/nf-core/mae'
+include { RNA_VARIANT_CALLING   } from '../subworkflows/nf-core/rnavariantcalling'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -116,6 +117,10 @@ workflow DROP {
 
     if (params.mae.active) {
         MAE(params)
+    }
+
+    if (params.rnaVariantCalling.active) {
+        RNA_VARIANT_CALLING(params)
     }
 }
 
